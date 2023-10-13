@@ -1,0 +1,93 @@
+// Базовый класс "Цветок"
+class Flower {
+    private String name;
+    private double price;
+
+    public Flower(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Подклассы цветов
+class Rose extends Flower {
+    public Rose() {
+        super("Роза", 10.0);
+    }
+}
+
+class Tulip extends Flower {
+    public Tulip() {
+        super("Тюльпан", 5.0);
+    }
+}
+
+// Аксессуары для букета
+class Accessory {
+    private String name;
+    private double price;
+
+    public Accessory(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Класс "Букет"
+class Bouquet {
+    private Flower[] flowers;
+    private Accessory[] accessories;
+
+    public Bouquet(Flower[] flowers, Accessory[] accessories) {
+        this.flowers = flowers;
+        this.accessories = accessories;
+    }
+
+    public double calculateTotalPrice() {
+        double flowerPrice = 0;
+        for (Flower flower : flowers) {
+            flowerPrice += flower.getPrice();
+        }
+
+        double accessoryPrice = 0;
+        for (Accessory accessory : accessories) {
+            accessoryPrice += accessory.getPrice();
+        }
+
+        return flowerPrice + accessoryPrice;
+    }
+}
+
+public class FlowerShop {
+    public static void main(String[] args) {
+        // Создаем цветы
+        Flower[] flowers = {new Rose(), new Tulip(), new Rose()};
+
+        // Создаем аксессуары
+        Accessory[] accessories = {new Accessory("Лента", 2.0), new Accessory("Бумага", 1.0)};
+
+        // Создаем букет
+        Bouquet bouquet = new Bouquet(flowers, accessories);
+
+        // Вычисляем стоимость букета
+        double totalPrice = bouquet.calculateTotalPrice();
+
+        System.out.println("Стоимость букета: $" + totalPrice);
+    }
+}
