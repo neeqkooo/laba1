@@ -1,0 +1,151 @@
+[
+ {
+  "import java.rmi.Remote;": "import java.rmi.RemoteException;"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "public interface FlowerService extends Remote {"
+ },
+ {
+  "import java.rmi.Remote;": "    double calculateBouquetPrice(Bouquet bouquet) throws RemoteException;"
+ },
+ {
+  "import java.rmi.Remote;": "}"
+ },
+ null,
+ null,
+ null,
+ {
+  "import java.rmi.Remote;": "import java.rmi.Naming;"
+ },
+ {
+  "import java.rmi.Remote;": "import java.rmi.RemoteException;"
+ },
+ {
+  "import java.rmi.Remote;": "import java.rmi.server.UnicastRemoteObject;"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "public class FlowerServer extends UnicastRemoteObject implements FlowerService {"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "    protected FlowerServer() throws RemoteException {"
+ },
+ {
+  "import java.rmi.Remote;": "        super();"
+ },
+ {
+  "import java.rmi.Remote;": "    }"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "    @Override"
+ },
+ {
+  "import java.rmi.Remote;": "    public double calculateBouquetPrice(Bouquet bouquet) throws RemoteException {"
+ },
+ {
+  "import java.rmi.Remote;": "        return bouquet.calculateTotalPrice();"
+ },
+ {
+  "import java.rmi.Remote;": "    }"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "    public static void main(String[] args) {"
+ },
+ {
+  "import java.rmi.Remote;": "        try {"
+ },
+ {
+  "import java.rmi.Remote;": "            FlowerService server = new FlowerServer();"
+ },
+ {
+  "import java.rmi.Remote;": "            Naming.rebind(\"FlowerService\"",
+  "Column2": " server);"
+ },
+ {
+  "import java.rmi.Remote;": "            System.out.println(\"Сервер запущен...\");"
+ },
+ {
+  "import java.rmi.Remote;": "        } catch (Exception e) {"
+ },
+ {
+  "import java.rmi.Remote;": "            e.printStackTrace();"
+ },
+ {
+  "import java.rmi.Remote;": "        }"
+ },
+ {
+  "import java.rmi.Remote;": "    }"
+ },
+ {
+  "import java.rmi.Remote;": "}"
+ },
+ null,
+ null,
+ {
+  "import java.rmi.Remote;": "import java.rmi.Naming;"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "public class FlowerClient {"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "    public static void main(String[] args) {"
+ },
+ {
+  "import java.rmi.Remote;": "        try {"
+ },
+ {
+  "import java.rmi.Remote;": "            FlowerService server = (FlowerService) Naming.lookup(\"rmi:\/\/localhost\/FlowerService\");"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "            \/\/ Создаем цветы и аксессуары (как в предыдущем коде)"
+ },
+ {
+  "import java.rmi.Remote;": "            Flower[] flowers = {new Rose()",
+  "Column2": " new Tulip()",
+  "Column3": " new Rose()};"
+ },
+ {
+  "import java.rmi.Remote;": "            Accessory[] accessories = {new Accessory(\"Лента\"",
+  "Column2": " 2.0)",
+  "Column3": " new Accessory(\"Бумага\"",
+  "Column4": " 1.0)};"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "            Bouquet bouquet = new Bouquet(flowers",
+  "Column2": " accessories);"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "            \/\/ Вызываем удаленный метод на сервере"
+ },
+ {
+  "import java.rmi.Remote;": "            double totalPrice = server.calculateBouquetPrice(bouquet);"
+ },
+ null,
+ {
+  "import java.rmi.Remote;": "            System.out.println(\"Стоимость букета: $\" + totalPrice);"
+ },
+ {
+  "import java.rmi.Remote;": "        } catch (Exception e) {"
+ },
+ {
+  "import java.rmi.Remote;": "            e.printStackTrace();"
+ },
+ {
+  "import java.rmi.Remote;": "        }"
+ },
+ {
+  "import java.rmi.Remote;": "    }"
+ },
+ {
+  "import java.rmi.Remote;": "}"
+ }
+]
